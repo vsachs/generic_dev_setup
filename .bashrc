@@ -1,6 +1,7 @@
 alias cdg="cd ~/git/"
-alias cdi="cd ~/git/Ingnomia/"
-alias cdm="cd ~/git/mac_setup/"
+alias cdp="cd ~/git/personal/"
+alias cdm="cd ~/git/personal/mac_setup/"
+alias cdd="cd ~/git/personal/diagrams/"
 
 alias e="emacs-27.1"
 alias resource="source ~/.bashrc"

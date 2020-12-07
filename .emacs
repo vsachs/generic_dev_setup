@@ -1,13 +1,11 @@
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(package-initialize)
-
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-                         ("marmalade" . "https://marmalade-repo.org/packages/")
-                         ("melpa" . "https://melpa.org/packages/")
-                         ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
-                         ("melpa-milkbox" . "http://melpa.milkbox.net/packages/"))
+      ("marmalade" . "https://marmalade-repo.org/packages/")
+      ("melpa" . "https://melpa.org/packages/")
+      ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
+      ("melpa-milkbox" . "http://melpa.milkbox.net/packages/"))
 )
+(package-initialize)
 
 ;(require 'protobuf-mode)
 ;(require 'cl)
