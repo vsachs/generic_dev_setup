@@ -12,7 +12,7 @@
 ;(require 'uniquify)
 ;(require 'paren)
 ;(require 'thingatpt)
-
+(setq backup-directory-alist `(("." . "~/.emacs_backups")))
 (setq auto-mode-alist (cons '("\.xaml$" . nxml-mode) auto-mode-alist))
 
 ;; keybinds
@@ -26,7 +26,7 @@
 (define-key my-keys-minor-mode-map (kbd "C-v") 'yank)
 (define-key my-keys-minor-mode-map (kbd "M-v") 'yank-pop)
 (define-key my-keys-minor-mode-map (kbd "C-w") 'kill-ring-save)
-(define-key my-keys-minor-mode-map (kbd "M-w") 'kill-region)
+(define-key my-keys-minor-mode-map (kbd "C-f") 'kill-region)
 (define-key my-keys-minor-mode-map (kbd "M-f") 'my-mark-current-word)
 (define-key my-keys-minor-mode-map (kbd "M-e") 'delete-region)
 (define-key my-keys-minor-mode-map (kbd "M-g") 'goto-line)
@@ -66,6 +66,24 @@
 	      tab-width 4
 	      intend-tabs-mode 0)
 
+(add-hook 'java-mode-hook
+		  (lambda ()
+			(setq c-basic-offset 4
+				  tab-width 4
+				  indent-tabs-mode nil)
+			(add-to-list 'write-file-functions 'delete-trailing-whitespace)))
+
+(add-hook 'sh-mode-hook
+		  (lambda ()
+			(setq c-basic-offset 4
+				  tab-width 4
+				  indent-tabs-mode nil)))
+
+(add-hook 'python-mode-hook
+		  (lambda ()
+			(setq tab-width 4)
+			(setq-default tab-width 4)
+			(add-to-list 'write-file-functions 'delete-trailing-whitespace)))
 
 ; run gofmt before any save
 (defun gofmt-if-go-mode()
@@ -77,7 +95,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(guess-offset go-mode)))
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(ansi-color-names-vector
+   ["black" "red3" "ForestGreen" "yellow3" "blue" "magenta3" "DeepSkyBlue" "gray50"])
+ '(custom-enabled-themes '(tango-dark))
+ '(package-selected-packages
+   '(yaml-mode json-mode markdown-mode+ markdown-mode guess-offset go-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
